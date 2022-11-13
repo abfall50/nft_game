@@ -7,15 +7,15 @@ import PokeBall from "./PokeBall";
 const Main = (props: {
   pokemons: any;
   mintPokemonNFTAction: (pokemonId: number) => Promise<void>;
-  minting: boolean
+  minting: boolean;
 }) => {
   const { pokemons, mintPokemonNFTAction, minting } = props;
 
-  const [open, setOpen] = useState([false, false, false]);
+  const [open, setOpen] = useState([false, false, false, false]);
 
   const onClick = (index: number) => {
-    mintPokemonNFTAction(index)
-  } 
+    mintPokemonNFTAction(index);
+  };
 
   return (
     <main className="w-full h-full flex flex-col justify-start items-center bg-[url('../public/bg_landing.jpg')] bg-cover ">
@@ -42,7 +42,7 @@ const Main = (props: {
           Select your NFT Pokemon:
         </p>
 
-        <div className="w-full flex justify-center items-center gap-36 pt-16">
+        <div className="w-full flex justify-center items-center gap-36 pt-10">
           <PokeBall
             index={0}
             setOpen={setOpen}
@@ -64,6 +64,16 @@ const Main = (props: {
             setOpen={setOpen}
             open={open}
             pokemon={pokemons[2]}
+            loading={minting}
+            onClick={onClick}
+          />
+        </div>
+        <div className="w-full flex justify-center items-center pt-10">
+          <PokeBall
+            index={3}
+            setOpen={setOpen}
+            open={open}
+            pokemon={pokemons[3]}
             loading={minting}
             onClick={onClick}
           />

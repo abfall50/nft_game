@@ -147,7 +147,7 @@ contract MyPokemonGame is ERC721 {
                 pokAttributes.name,
                 " -- NFT #: ",
                 Strings.toString(_tokenId),
-                '", "description": "This is an NFT that lets people play in the game Pokemon Rush!", "image": "',
+                '", "description": "This is an NFT that lets people play in the game Pokemon Rush!", "image": "ipfs://',
                 pokAttributes.imageURI,
                 '", "attributes": [ { "trait_type": "Health Point", "value": ',
                 strHp,
@@ -198,7 +198,7 @@ contract MyPokemonGame is ERC721 {
         require(player.hp > 0, "Error: pokemon must have hp to attack boss.");
         require(bigBoss.hp > 0, "Error: boss must have hp to attack pokemon.");
 
-        if (randomInt(10) > 1) {
+        if (randomInt(10) > 0) {
             console.log("%s hit ", player.name, bigBoss.name);
             if (bigBoss.hp < playerAD) {
                 bigBoss.hp = 0;
@@ -211,7 +211,7 @@ contract MyPokemonGame is ERC721 {
             console.log("%s missed!", player.name);
         }
 
-        if (randomInt(10) > 5) {
+        if (randomInt(10) >= 3) {
             console.log("%s hit %s", bigBoss.name, player.name);
             if (player.hp < bigBoss.attackDamage) {
                 player.hp = 0;

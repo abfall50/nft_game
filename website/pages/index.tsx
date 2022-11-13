@@ -8,6 +8,7 @@ import Main from "../components/Main";
 import {
   CONTRACT_ADDRESS,
   getEthereumObj,
+  transformBossData,
   transformCharacterData,
 } from "../utils/constants";
 import myPokemonGame from "../utils/MyPokemonGame.json";
@@ -15,6 +16,7 @@ import myPokemonGame from "../utils/MyPokemonGame.json";
 export default function Home() {
   const [currentAccount, setCurrentAccount] = useState(null);
   const [pokemonNFT, setPokemonNFT] = useState<any>(null);
+  const [boss, setBoss] = useState<any>(null);
 
   const [pokemons, setPokemons] = useState([]);
   const [gameContract, setGameContract] = useState<Contract>();
@@ -116,10 +118,10 @@ export default function Home() {
     }
 
     const interval = setInterval(() => {
-      setLoading(false)
-    }, 2000)
+      setLoading(false);
+    }, 2000);
 
-    return () => clearInterval(interval)
+    return () => clearInterval(interval);
   }, []);
 
   useEffect(() => {
@@ -140,6 +142,12 @@ export default function Home() {
       }
     };
 
+    const fetchBoss = async () => {
+      const bossTxn = await gameContract?.getBoss();
+      console.log("Boss: ", bossTxn);
+      setBoss(transformBossData(bossTxn));
+    };
+
     const onPokemonMint = async (
       sender: string,
       tokenId: number,
@@ -158,7 +166,7 @@ export default function Home() {
 
     if (gameContract) {
       getPokemons();
-
+      fetchBoss();
       gameContract.on("PokemonNFTMinted", onPokemonMint);
     }
 
@@ -180,7 +188,14 @@ export default function Home() {
           {currentAccount ? (
             <>
               {pokemonNFT?.name ? (
-                <Arena pokemon={pokemonNFT} />
+                <Arena
+                  pokemon={pokemonNFT}
+                  gameContract={gameContract}
+                  currentAccount={currentAccount}
+                  setPokemon={setPokemonNFT}
+                  boss={boss}
+                  setBoss={setBoss}
+                />
               ) : (
                 <Main
                   pokemons={pokemons}

@@ -2,8 +2,6 @@ import Image, { StaticImageData } from "next/image";
 import Pokeball from "../public/pokeball.png";
 import { Modal } from "@mui/material";
 import { Dispatch, SetStateAction, useState } from "react";
-import { url } from "inspector";
-import Loader from "./Loader";
 import MiningModal from "./MiningModal";
 
 const PokeBall = (props: {
@@ -44,7 +42,7 @@ const PokeBall = (props: {
             {pokemon?.name}
           </span>
           <Image
-            src={pokemon?.imageURI}
+            src={`https://cloudflare-ipfs.com/ipfs/${pokemon?.imageURI}`}
             alt={pokemon?.name}
             width={250}
             height={250}
