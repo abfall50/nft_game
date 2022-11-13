@@ -147,7 +147,7 @@ contract MyPokemonGame is ERC721 {
                 pokAttributes.name,
                 " -- NFT #: ",
                 Strings.toString(_tokenId),
-                '", "description": "This is an NFT that lets people play in the game Pokemon Rush!", "image": "ipfs://',
+                '", "description": "This is an NFT that lets people play in the game Pokemon Rush!", "image": "',
                 pokAttributes.imageURI,
                 '", "attributes": [ { "trait_type": "Health Point", "value": ',
                 strHp,

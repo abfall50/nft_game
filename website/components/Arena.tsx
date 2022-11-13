@@ -141,7 +141,7 @@ const Arena = (props: {
         </div>
       </div>
       <div className="w-full h-full flex flex-col justify-start items-center">
-        <Image src={`https://cloudflare-ipfs.com/ipfs/${pokemon.imageURI}`} alt="Pokemon" width={250} height={250} />
+        <Image src={pokemon.imageURI} alt="Pokemon" width={250} height={250} />
       </div>
       <div className="w-full h-full"></div>
       <div className="w-full h-full flex flex-col justify-end items-center pb-28 pr-10">

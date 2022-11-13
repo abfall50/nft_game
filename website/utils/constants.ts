@@ -1,4 +1,4 @@
-export const CONTRACT_ADDRESS = "0x79B314311B004bCB79E896D7dbB7B4159E4C9910";
+export const CONTRACT_ADDRESS = "0xfb045190dd46fa23d35Fc1717739866F054d028a";
 
 declare let window: any;
 export const getEthereumObj = () => window.ethereum;

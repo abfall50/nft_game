@@ -6,7 +6,7 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'cloudflare-ipfs.com',
+        hostname: 'raw.githubusercontent.com',
       },
     ],
   },

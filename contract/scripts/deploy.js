@@ -6,10 +6,10 @@ const main = async () => {
 	const gameContract = await gameContractFactory.deploy(
 	  ["Bulbasaur", "Charmander", "Squirtle", "Pikachu"],
 	  [
-		"QmUrtCAojLjhphsQEw9WhVtXvUS9UEZJBhTviAopC8Co56",
-		"QmXmQxs7Ad8sptkXpDPTTUWFZ5auSd8jcGoigbFcneTVte",
-		"QmSYhv8sQKMLbuLquqjhgdMgd2BHYLEX2uYFtHcXNqDYpN",
-		"QmRB1SZjyF6UGBKMmNwYEzzSVyLfN4yRS2LzFDNihLz7fU"
+		"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/1.png",
+		"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/4.png",
+		"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/7.png",
+		"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/10094.png"
 	  ],
 	  [294, 282, 292, 200],
 	  [197, 203, 195, 300],

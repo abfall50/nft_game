@@ -42,7 +42,7 @@ const PokeBall = (props: {
             {pokemon?.name}
           </span>
           <Image
-            src={`https://cloudflare-ipfs.com/ipfs/${pokemon?.imageURI}`}
+            src={pokemon?.imageURI}
             alt={pokemon?.name}
             width={250}
             height={250}
